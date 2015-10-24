@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+#header 
+{
+	background-color:black;
+	color:white;
+	text-Align:center;
+	padding:2px;
+}
+#section
+{
+	text-Align:center;
+	float:left;
+	width:100%;
+	display:block;
+	padding:2px;
+	
+}
+</style>
+<script type="text/javascript">
+function checkPass()
+{
+	p1 = document.getElementById('password').value;
+	p2 = document.getElementById('password2').value;
+	
+	if( p1 == p2)
+	{
+		console.log(p1 + p2);
+		form2.submit();
+	}
+	else
+	{
+		console.log("passwords dont match")
+	}
+	
+}
+</script>
+</head>
+<body>
+<div id="header">
+<h1> Team America World Police</h1>
+</div>
+
+<div id="flag">
+<img src="flag.jpg" style="	height:350px;width:100%;">
+</div>
+
+<div id="section">
+<h2>Registration Form</h2>
+<form name ="form2" method="post" action="addNewUser.php">
+Username: <input type="text" name="username" placeholder="Enter Username">
+<br>
+<br>
+Enter Password: <input type="password" name="password" id="password" placeholder="Enter Password">
+<br>
+<br>
+Password Again: <input type="password" name="password2" id="password2"placeholder="Enter Password">
+<br>
+<br>
+Freedom Level: <input type="text" name="freedomLevel" placeholder="Your Freedom level">
+<br>
+<br>
+<input type="button" onClick="checkPass()" value="Submit">
+<br>
+</form>
+</div>
+</body>
+</html>
+

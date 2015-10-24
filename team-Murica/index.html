@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+#header 
+{
+	background-color:black;
+	color:white;
+	text-Align:center;
+	padding:2px;
+}
+#section
+{
+	text-Align:center;
+	float:left;
+	width:100%;
+	display:block;
+	padding:2px;
+	
+}
+</style>
+<script type="text/javascript">
+function setAuth()
+{
+	u = document.getElementById('username').value;
+	p = document.getElementById('password').value;
+	
+	if( u != "" && p != "")
+	{
+		console.log(u + p);
+	}
+}
+</script>
+</head>
+<body>
+<div id="header">
+<h1> Team America World Police</h1>
+</div>
+
+<div id="flag">
+<img src="flag.jpg" style="	height:350px;width:100%;">
+</div>
+
+<div id="section">
+<h2>The world's fastest growing police force</h2>
+<form method="post" action="auth.php">
+Username: <input type="text" name="username" placeholder="Enter Username">
+<br>
+<br>
+Password: <input type="password" name="password" placeholder="Enter Password">
+<br>
+<br>
+<a href="newUser.html">Not a user? Click here to register.</a>
+<br>
+<br>
+<input type="submit" value="Submit">
+<br>
+</form>
+</div>
+</body>
+</html>
+
