@@ -5,13 +5,10 @@ require_once('new_rabbitMQ/path.inc');
 require_once('new_rabbitMQ/get_host_info.inc');
 require_once("new_rabbitMQ/logger.inc");
 
-//$creds = array($_POST["username"]=>$_POST["password"]);
-$creds = array("username"=>"agoldman",
-"password"=>"bodypillow");
-$creds2 = json_encode($creds);
+$creds = array($_POST["username"],$_POST["password"]);
+//$creds = array('agoldman','bodypillow');
 $thing = "login";
 $logger = new logger("logger.inc");
-echo $creds2;
 
 try 
 {
@@ -24,12 +21,13 @@ try
 	{
   		$msg = "test message";
 	}
-	var_dump(array($thing,$creds2));
-	$response = $client->send_request(array($thing, $creds2));
+	var_dump(array($thing,$creds));
+	$response = $client->send_request(array($thing, $creds));
 	$logger->log("received",$response);
 	var_dump($response);
-	if ($response == "true")
+	if ($response == "True")
 	{
+		var_dump($response);
 		header('Location: home.html');
 	}
 

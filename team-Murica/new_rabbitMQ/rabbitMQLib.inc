@@ -149,7 +149,7 @@ class rabbitMQClient
 	private $VHOST;
 	private $exchange;
 	private $queue;
-	private $routing_key = '*';
+	private $routing_key = 'test';
 	private $response_queue = array();
 	private $exchange_type = "topic";
 
