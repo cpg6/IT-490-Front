@@ -1,11 +1,44 @@
-<html>
-<body>
-Hi
-<?php echo var_dump($_POST["username"];)?><br>
-<?php echo var_dump($_POST["password"];)?><br>
-<?php echo var_dump($_POST["password2"];)?><br>
-<?php // All data done in the form. This is for adding new users
-      // to the database, then redirect to login page.
-  ?>
-</body>
-</html>
+<?php 
+
+require_once("new_rabbitMQ/rabbitMQLib.inc");
+require_once('new_rabbitMQ/path.inc');
+require_once('new_rabbitMQ/get_host_info.inc');
+require_once("new_rabbitMQ/logger.inc");
+
+$creds = array($_POST["username"],$_POST["password"],$_POST["freedomLevel"]);
+//$creds = array('agoldman','bodypillow');
+$thing = "regi";
+$logger = new logger("logger.inc");
+
+try 
+{
+	$client = new rabbitMQClient("testRabbitMQ.ini","testServer");
+	if (isset($argv[1]))
+	{
+  		$msg = $argv[1];
+	}
+	else
+	{
+  		$msg = "test message";
+	}
+	var_dump(array($thing,$creds));
+	$response = $client->send_request(array($thing, $creds));
+	$logger->log("received",$response);
+	var_dump($response);
+	if ($response == "True")
+	{
+		var_dump($response);
+		header('Location: home.html');
+		
+	}
+
+}
+catch (Exception $e) 
+{
+	$logger->log("error", $e->geMessage());
+}
+	  // Then validate session to home.html
+
+	  ?>
+
+

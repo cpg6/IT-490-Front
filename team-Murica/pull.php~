@@ -1,0 +1,54 @@
+<?php 
+
+error_reporting(-1);
+ini_set('error_reporting', E_ALL);
+
+require_once("new_rabbitMQ/rabbitMQLib.inc");
+require_once('new_rabbitMQ/path.inc');
+require_once('new_rabbitMQ/get_host_info.inc');
+require_once("new_rabbitMQ/logger.inc");
+
+//$test ="test";
+
+
+$test = {"_id": {"oid": "56730d4176bbad4867be3cb5"},"error": "OK","limit": 1,"offset": 0,"number_of_page_results": 1,"number_of_total_results": 1,"status_code": 1,"results": {"description": "<h2>Overview<\/h2><p style=\"\">Bass Avenger is a fishing game developed by <a data-ref-id=\"3010-14\" href=\"/hypnotix-inc/3010-1\">Hypnotix<\/a> and published by <a data-ref-id=\"3010-13\" href=\"/simon-schuster-interactive/3010-13\">Simon &amp; Schuster Interactive<\/a> for the <a data-ref-id=\"3045-94\" href=\"/pc/3045-94\">PC<\/a> and <a data-ref-id=\"3045-17\" href=\"/mac/3045-17\">Mac<\/a> platforms.<\/p>","name": "Bass Avenger","images": [{
+"icon_url": "http://static.giantbomb.com/uploads/square_avatar/0/238/707238-bass_avenger.jpg","medium_url": "http://static.giantbomb.com/uploads/screen_medium/0/238/707238-bass_avenger.jpg","screen_url": "http://static.giantbomb.com/uploads/screen_medium/0/238/707238-bass_avenger.jpg","small_url": "http://static.giantbomb.com/uploads/square_avatar/0/238/707238-bass_avenger.jpg","super_url": "http://static.giantbomb.com/uploads/scale_large/0/238/707238-bass_avenger.jpg","thumb_url": "http://static.giantbomb.com/uploads/scale_small/0/238/707238-bass_avenger.jpg","tiny_url": "http://static.giantbomb.com/uploads/square_mini/0/238/707238-bass_avenger.jpg","tags": "Box Art, All Images"}]},"version": "1.0"};
+echo json_encode($test);
+
+/*
+$creds = array($_POST["username"],$_POST["password"]);
+//$creds = array('agoldman','bodypillow');
+$thing = "login";
+$logger = new logger("logger.inc");
+
+try 
+{
+	$client = new rabbitMQClient("testRabbitMQ.ini","testServer");
+	if (isset($argv[1]))
+	{
+  		$msg = $argv[1];
+	}
+	else
+	{
+  		$msg = "test message";
+	}
+	var_dump(array($thing,$creds));
+	$response = $client->send_request(array($thing, $creds));
+	$logger->log("received",$response);
+	var_dump($response);
+	if ($response == "True")
+	{
+		var_dump($response);
+		header('Location: home.html');
+	}
+
+}
+catch (Exception $e) 
+{
+	$logger->log("error", $e->geMessage());
+}
+	  // Then validate session to home.html
+
+	  ?>
+*/
+?>
